@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Perfil - Anefátima Figueiredo </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #667eea 0%, #89f7fe 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255,255,255,0.85);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(.4,2,.3,1), box-shadow 0.3s;
+            border: 1.5px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(6px);
+            position: relative;
+        }
+
+        .profile-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            pointer-events: none;
+            box-shadow: 0 0 40px 10px #89f7fe44;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .profile-card:hover {
+            transform: translateY(-12px) scale(1.025);
+            box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.30);
+        }
+        .profile-card:hover::after {
+            opacity: 1;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            padding: 36px 20px 30px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+            position: relative;
+            z-index: 1;
+            animation: pulse-ring 2.5s infinite cubic-bezier(.66,0,0,1);
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                box-shadow: 0 0 0 0 #4facfe55;
+            }
+            70% {
+                box-shadow: 0 0 0 18px #4facfe00;
+            }
+            100% {
+                box-shadow: 0 0 0 0 #4facfe00;
+            }
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .profile-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .profile-body {
+            padding: 25px;
+        }
+
+        .profile-bio {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 25px 0;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .stat {
+            flex: 1;
+            background: rgba(76, 172, 254, 0.08);
+            border-radius: 14px;
+            box-shadow: 0 2px 8px #4facfe22;
+            padding: 12px 0 8px 0;
+            margin: 0 2px;
+            transition: box-shadow 0.3s;
+        }
+        .stat-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #4facfe;
+            text-shadow: 0 2px 8px #4facfe33;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skills {
+            margin-top: 20px;
+        }
+
+        .skills-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill {
+            background: #f0f8ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #4facfe;
+            font-weight: 500;
+        }
+
+        .profile-footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.18);
+            color: #4facfe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            box-shadow: 0 2px 8px #4facfe22, 0 1.5px 8px #fff2;
+            border: 1.5px solid #4facfe33;
+            backdrop-filter: blur(2px);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.13) rotate(-6deg);
+            background: rgba(76, 172, 254, 0.18);
+            color: #764ba2;
+            box-shadow: 0 4px 16px #764ba244, 0 2px 12px #fff3;
+            border: 1.5px solid #764ba2;
+        }
+
+        @media (max-width: 480px) {
+            .profile-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .profile-body {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="IMAGEM/foto-perfil.jpg" alt="Foto de Anefatima Figueiredo" class="profile-image">
+            <h1 class="profile-name">Anefatima Figueiredo</h1>
+            <p class="profile-title">Desenvolvedora Frontend</p>
+        </div>
+        
+        <div class="profile-body">
+            <p class="profile-bio">
+                Desenvolvedora Frontend apaixonada por criar experiências digitais incríveis. 
+                Atualmente estudando as mais recentes tecnologias web e buscando oportunidades 
+                para transformar ideias em código elegante e funcional.
+            </p>
+            
+            <div class="profile-stats">
+                <div class="stat">
+                    <div class="stat-value">15</div>
+                    <div class="stat-label">Projetos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Anos Exp</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">Tecnologias</div>
+                </div>
+            </div>
+            
+            <div class="skills">
+                <h3 class="skills-title">Habilidades</h3>
+                <div class="skill-list">
+                    <span class="skill">HTML5</span>
+                    <span class="skill">CSS3</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">React</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">UI/UX</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-footer">
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
