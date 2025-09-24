@@ -12,7 +12,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
             background: linear-gradient(120deg, #667eea 0%, #89f7fe 100%);
             display: flex;
@@ -21,7 +21,7 @@
             min-height: 100vh;
             padding: 20px;
         }
-
+        
         .profile-card {
             background: rgba(255,255,255,0.85);
             border-radius: 24px;
@@ -45,10 +45,12 @@
             opacity: 0;
             transition: opacity 0.4s;
         }
+        
         .profile-card:hover {
             transform: translateY(-12px) scale(1.025);
             box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.30);
         }
+        
         .profile-card:hover::after {
             opacity: 1;
         }
@@ -219,7 +221,7 @@
 <body>
     <div class="profile-card">
         <div class="profile-header">
-            <img src="IMAGEM/foto-perfil.jpg" alt="Foto de Anefatima Figueiredo" class="profile-image">
+            <img src="imagens/foto-perfil.jpg" alt="Foto de Anefatima Figueiredo" class="profile-image">
             <h1 class="profile-name">Anefatima Figueiredo</h1>
             <p class="profile-title">Desenvolvedora Frontend</p>
         </div>
@@ -279,3 +281,4 @@
 </body>
 
 </html>
+
